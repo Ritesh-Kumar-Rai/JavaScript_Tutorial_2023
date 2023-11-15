@@ -32,3 +32,19 @@ const navbar = ({loggedIn}) =>{
 
 navbar(loggedIn = 'true');
 */
+
+
+// JSON format for api
+
+/*{
+    name : '',
+    some_data : '',
+    status : true,
+    ... 
+}*/
+
+
+// sometime array of objects 
+// [
+//     {},{},{}
+// ]
