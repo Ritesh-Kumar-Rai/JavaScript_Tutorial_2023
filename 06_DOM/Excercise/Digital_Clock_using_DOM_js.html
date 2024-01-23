@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock using DOM JS</title>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        .container{
+            margin-top: 20%;
+           
+        }
+
+        #clock{
+            margin-left: 45%;
+            padding: 12px 30px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: aliceblue; margin-left: 45%;">CLOCK</h1>
+        <span id="clock"></span>
+    </div>
+</body>
+
+<script>
+    let clock = document.querySelector('#clock');
+
+    
+    setInterval(()=>{
+        let date = new Date();
+        clock.innerText = date.toLocaleString(); 
+    },1000);
+
+</script>
+</html>

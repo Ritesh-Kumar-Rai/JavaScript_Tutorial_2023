@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector/title>
+</head>
+<body>
+
+    <h1>Lorem, ipsum.</h1>
+    <h1>Lorem, ipsum dolor.</h1>
+    <h1>Lorem ipsum dolor sit.</h1>
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    <h3 id="head3">heading 3</h3>
+
+    <p class="myclass">Hare Krsna</p>
+
+    <label for="in">input</label>
+    <input type="password" name="" id="in">
+
+    <ul>
+        <li>Ram</li>
+        <li>Krsna</li>
+        <li>Balram</li>
+    </ul>
+
+    <script>
+
+        // 1. getElementByClassName()
+
+        // const first = document.getElementsByClassName('myclass');
+        // console.log(first[0]);
+
+        // 2. querySelector() used to select any query
+
+        console.log(document.querySelector('h1')); // selects 1st h1 tag 
+        
+        console.log(document.querySelector('.myclass')); // selects p tag which has class = 'myclass'
+
+        console.log(document.querySelector('#head3')); // selects h3 tag 
+
+        console.log(document.querySelector('input[type=password]')); // used to select input tag
+
+        // let's select ul and li tag
+
+        const myul = document.querySelector('ul'); 
+
+        document.querySelector('li'); // or 
+       const myli =  myul.querySelector('li'); // both are same 
+
+       myli.style.backgroundColor = 'green';
+
+       myli.style.padding = '5px';
+
+       myli.style.color = 'yellow';
+
+       myli.innerText; // o/p: Ram
+
+      // myli.innerText = 'Narayan' // sets to Narayan
+
+    </script>
+</body>
+</html>

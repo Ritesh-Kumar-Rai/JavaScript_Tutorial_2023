@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Nodes in DOM</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: aliceblue;
+    }
+</style>
+<body>
+    <ul class="languages">
+        <li>JavaScript</li>
+    </ul>
+</body>
+
+    <script>
+        // function to create and append node 
+        function addlanguage(langName) {
+                const li = document.createElement('li');
+                li.innerHTML = `${langName}`;// not optimized because it first traverse all the li list
+                document.querySelector('.languages').appendChild(li);
+        }
+
+        addlanguage('Java');
+        addlanguage('Python');
+
+        // let's perform same but with optimized way
+
+        function addlanguage_with_optimization(langName) {
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(`${langName}`));
+                document.querySelector('.languages').appendChild(li);
+        }
+
+        addlanguage_with_optimization('PHP');
+        addlanguage_with_optimization('C');
+
+        // Edit
+        const secondLi = document.querySelector('li:nth-child(2)');
+        console.log(secondLi);
+        // secondLi.innerHTML = 'GoLang';
+        const newOne = document.createElement('li');
+        // newOne.appendChild(document.createTextNode('Golang')) or
+        newOne.textContent = 'Golang'
+        secondLi.replaceWith(newOne);
+
+        // Edit 
+        const firstchild = document.querySelector('li:first-child');
+        firstchild.outerHTML = '<li> C++ </li>';
+
+
+        // Remove
+        const lastChild = document.querySelector('li:last-child');
+        lastChild.remove();
+
+    </script>
+</html>

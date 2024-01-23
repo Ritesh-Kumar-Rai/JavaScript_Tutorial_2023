@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selector</title>
+    <style>
+        #applystyle{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body id="applystyle">
+    <div>
+        <h1 id="title" class="heading">This is DOM</h1>
+        <p>Hare Krsna, This is Ritesh Kumar Rai</p>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        // all DOM selectors
+
+        // Be sure that document is an object and you will access all it's properties via (.) dot
+
+        document.getElementById('title') // to target element by it's id
+
+        document.getElementById('title').id // to get the name of id 
+
+        document.getElementById('title').className // to get the name of class, here you need to write className instead of class
+
+        // 2. getAttribute() : it is used to fetch the name of attributes from the html tags
+
+        document.getElementById('title').getAttribute('id'); // o/p : title
+        document.getElementById('title').getAttribute('class'); // o/p : heading
+
+        // 3. setAttribute(name,value) : it is used to set the attribute to the html tag, note that this will override the existing one
+        
+        // document.getElementById('title').setAttribute('id','pehla'); // id changed
+        // document.getElementById('pehla').setAttribute('class','pehla_class'); // classname changed
+
+        // style property
+        const title = document.getElementById('title');
+            // title.style.backgroundColor = 'pink' // this is also a good practice
+
+        document.getElementById('title').style.backgroundColor = 'Yellow'
+        document.getElementById('title').style.color = 'Black'
+        title.style.padding = '12px'
+        document.getElementById('title').style.borderRadius = '10px'
+
+    </script>
+</body>
+</html>

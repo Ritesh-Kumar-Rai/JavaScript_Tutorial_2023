@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM get element value</title>
+    <style>
+        #applystyle{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body id="applystyle">
+
+    <div>
+        <h1 id="title">This is DOM</h1>
+        <p id="para">Hare Krsna, This is Ritesh Kumar Rai<span style="display: none;">Your Developer</span></p>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        // How to get all data's or text from html tags
+
+        const para = document.getElementById('para');
+
+        console.log(para.textContent);
+        console.log(para.innerText); // hidden text will not appear
+        console.log(para.innerHTML); // it will show the inner html tags also
+        
+
+    </script>
+</body>
+</html>

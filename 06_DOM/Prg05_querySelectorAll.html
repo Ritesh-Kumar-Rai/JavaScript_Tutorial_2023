@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+</head>
+
+<body>
+
+    <h2>Hare Krsna</h2>
+
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+
+    <script>
+        // querySelectorAll() : is used to get all the elements which have same name
+
+        document.querySelectorAll('ul'); // it returns nodelist which only supports forEach() loop
+
+        const myul = document.querySelectorAll('ul'); // it returns only one element because ul is only one
+        console.log(myul[0])
+        // console.log(myul[1]) undefined 
+
+        const myli = document.querySelectorAll('li'); // nodelist(3) [li,li,li]
+
+        myli[0] // <li>one</li>
+        myli[1] // <li>two</li>
+        myli[2] // <li>three</li>
+        myli[3] // undefined
+
+
+        // [NOTE : nodelist looks like an array but don't be confuse it's not an actual array you can move it to array to make it actual array];
+
+        // myli.style.color = 'red'; no you can't because you need to use an index [0,1,2,3,....]
+        myli[0].style.color = 'red'; // now you can set
+        myli[1].style.color = 'purple';
+        myli[2].style.color = 'cyan';
+
+
+        // In this page h2 tag is only one let's try to target h2 using querySelectorAll()
+
+        const myh2 = document.querySelectorAll('h2');
+        //myh2.style.color = 'red'; // no still you need to use index
+        myh2[0].style.color = 'red';
+
+
+
+        // querySelectorAll() supports forEach() loop, let's use it
+
+        myli.forEach((l) => {
+            console.log(l);
+            l.style.backgroundColor = 'black';
+            l.style.padding = '12px';
+            l.style.borderRadius = '3px';
+        });
+
+    </script>
+</body>
+
+</html>

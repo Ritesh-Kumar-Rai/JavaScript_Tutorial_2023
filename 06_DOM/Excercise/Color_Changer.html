@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer using DOM Manipulation</title>
+    <style>
+        .container{
+            margin-top: 200px;
+            padding: 50px;
+         
+            padding-left: 30%;
+        }
+        button{
+            padding: 30px;
+            justify-content: space-between;
+            margin-left: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Try Change the color of background by clicking on color</h1>
+        <button type="button" style="background-color: black; cursor: pointer; border: 3px solid white;" onclick="changeColor('black')"></button>
+        <button type="button" style="background-color: red; cursor: pointer; border: 3px solid white;" onclick="changeColor('red')"></button>
+        <button type="button" style="background-color: chartreuse; cursor: pointer; border: 3px solid white;" onclick="changeColor('chartreuse')"></button>
+        <button type="button" style="background-color: cyan; cursor: pointer; border: 3px solid white;" onclick="changeColor('cyan')"></button>
+        <button type="button" style="background-color: dimgray; cursor: pointer; border: 3px solid white;" onclick="changeColor('dimgray')"></button>
+    </div>
+</body>
+<script>
+    changeColor = (color) =>{
+        document.body.style.backgroundColor = color;
+        // short hand if...else statement (condition) ? true : false;
+        (color === 'black') ? document.querySelector('h1').style.color = 'white' : document.querySelector('h1').style.color = 'black';
+    }
+</script>
+</html>

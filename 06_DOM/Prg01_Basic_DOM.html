@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+<body>
+    <div id="myDiv">
+        <h1>Hi, This is Ritesh Rai</h1>
+        <p>We are moving towards DOM(Document Object Model) manipulation</p>
+    </div>
+
+
+    <script>
+        console.log(window.document);
+
+        
+        const isTrue = confirm('Are you want to apply INNERHTML to current div tag');
+        
+        isTrue ? document.getElementById('myDiv').innerHTML = "<h1>HARE KRSNA</h1>" : null;
+        
+        
+        console.log(document.getElementById('myDiv').outerHTML);
+    </script>
+</body>
+</html>

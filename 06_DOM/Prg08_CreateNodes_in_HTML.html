@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Node in HTML</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    
+</body>
+    <script>
+
+        // This code teaches how to create new element and attach to HTML using DOM 
+
+        const Created_div = document.createElement('div');
+
+        console.log(Created_div);
+
+        Created_div.className = 'myClass';
+        Created_div.id = Math.round(Math.random() * 10 + 1);
+        Created_div.setAttribute('title','myTitle');
+        
+        Created_div.style.backgroundColor = 'orange';
+        Created_div.style.color = 'white';
+        Created_div.style.padding = '2px'; 
+
+        // Created_div.innerText = "Hare Krsna";
+
+      /*  [NOTE : When we are adding attributes and texts using (.) dot, then the DOM will override the attributes and texts 
+                which cause slow performance. 
+                For example : div.innerHTML = 'hare krsna' -> it will traverse first then give me access then set the value to it...
+                It is recommended to use setAttribute() or createTextNode() then append to tags ] */
+
+        const textNode = document.createTextNode('Hare Krsna');
+        
+        // attaching node to body and tag node
+        Created_div.appendChild(textNode);
+
+        document.body.appendChild(Created_div);
+        
+
+    </script>
+</html>
