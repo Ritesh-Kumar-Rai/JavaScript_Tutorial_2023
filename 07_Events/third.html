@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Excercise</title>
+    <style>
+        img{
+            width: 400px;
+            height: 240px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="images">
+        <li><img id="js" src="https://th.bing.com/th/id/R.fc32f16276c6e6459d579924c0456e11?rik=2K8yVgHO12Is6w&riu=http%3a%2f%2f3.bp.blogspot.com%2f-PTty3CfTGnA%2fTpZOEjTQ_WI%2fAAAAAAAAAeo%2fKeKt_D5X2xo%2fw1200-h630-p-k-nu%2fjs.jpg&ehk=2PrB9111t3zKW%2f42wxMGGN6YYYRN3%2bgtuPOWner1T8M%3d&risl=&pid=ImgRaw&r=0" ></li>
+        <li><img id="html" src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/09/HTML-Effects-Featured.jpg" ></li>
+        <li><img id="css" src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/css-beginners-tutorial.jpg" ></li>
+        <li><img id="nodeJs" src="https://th.bing.com/th/id/OIP.M1U-BOiIzjE8ERoPA2GqpQHaE8?rs=1&pid=ImgDetMain" ></li>
+        <li><a href="http://www.google.com">Go to Google</a></li>
+    </ul>
+
+
+</body>
+<script>
+
+    document.getElementById("images").addEventListener('click', (e)=>{
+        e.preventDefault(); // it used to stop default action like if we click on link it by default go to the url but we can prevent this using preventDefault()
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+
+        if(e.target.tagName === "IMG"){
+
+            let removeItem = e.target.parentNode;
+            
+            // 2 methods to remove it 
+            //a. removeItem.remove();
+            removeItem.remove();
+            // b. removeItem.parentNode.removeChild(removeItem);
+        }
+    });
+
+    
+</script>
+</html>

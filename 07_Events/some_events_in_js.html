@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some Events in JS-2</title>
+</head>
+<body>
+    <!-- <ul>
+        <li><img id="js" src="https://th.bing.com/th/id/R.fc32f16276c6e6459d579924c0456e11?rik=2K8yVgHO12Is6w&riu=http%3a%2f%2f3.bp.blogspot.com%2f-PTty3CfTGnA%2fTpZOEjTQ_WI%2fAAAAAAAAAeo%2fKeKt_D5X2xo%2fw1200-h630-p-k-nu%2fjs.jpg&ehk=2PrB9111t3zKW%2f42wxMGGN6YYYRN3%2bgtuPOWner1T8M%3d&risl=&pid=ImgRaw&r=0" ></li>
+        <li><img id="html" src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/09/HTML-Effects-Featured.jpg" ></li>
+        <li><img id="css" src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/css-beginners-tutorial.jpg" ></li>
+        <li><img id="nodeJs" src="https://th.bing.com/th/id/OIP.M1U-BOiIzjE8ERoPA2GqpQHaE8?rs=1&pid=ImgDetMain" ></li>
+    </ul> -->
+
+    <div id="container" style="width: 900px; height: 900px;">
+
+     </div>
+</body>
+
+<script>
+
+    // Events in JS
+    /*
+        type, timeStamp, preventDefault(), target, toElement, srcElement, currentTarget, 
+        clientX, clientY, screenX, screenY,
+        altkey, ctrlkey, shiftkey, keyCode
+    */
+
+
+// Get the document body element
+let body = document.getElementById("container");
+var isTrue = false;
+
+function handleClick1(){
+    isTrue = true;
+}
+
+// Create a function to handle the click event
+function handleClick(event) {
+
+    if(isTrue){
+
+        // Get the x and y coordinates of the mouse click
+        const x = event.clientX;
+        const y = event.clientY;
+        
+        // Create a new div element
+        let div = document.createElement("div");
+        
+        // Set the width, height, and position of the div element
+        div.style.width = "10px";
+        div.style.height = "10px";
+        div.style.position = "absolute";
+        div.style.borderRadius = "10px";
+  div.style.left = x + "px";
+  div.style.top = y + "px";
+  
+  // Set a random background color for the div element
+  const colors = ["red", "green", "blue", "yellow", "pink", "purple"];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  console.log(randomColor);
+  div.style.backgroundColor = randomColor;
+  
+  // Append the div element to the body element
+  body.appendChild(div);
+    }
+}
+
+handleClick2 = () =>{
+    isTrue = false;
+}
+// Add a click event listener to the body element
+body.addEventListener("mousedown", handleClick1);
+body.addEventListener("mousemove", handleClick);
+body.addEventListener("mouseup", handleClick2);
+
+
+</script>
+</html>

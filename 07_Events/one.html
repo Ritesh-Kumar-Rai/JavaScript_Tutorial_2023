@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS-1</title>
+    <style>
+        img{
+            width: 400px;
+            height: 240px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- To trigger some action when some event happens we have many ways to do it -->
+    <!-- Most easy method is to add onclick() event on html tags directly but it causes an issue
+         when we want to scale our application instead see inside script tag which i mentioned some good practices -->
+    <ul id="images">
+        <li><img id="js" src="https://th.bing.com/th/id/R.fc32f16276c6e6459d579924c0456e11?rik=2K8yVgHO12Is6w&riu=http%3a%2f%2f3.bp.blogspot.com%2f-PTty3CfTGnA%2fTpZOEjTQ_WI%2fAAAAAAAAAeo%2fKeKt_D5X2xo%2fw1200-h630-p-k-nu%2fjs.jpg&ehk=2PrB9111t3zKW%2f42wxMGGN6YYYRN3%2bgtuPOWner1T8M%3d&risl=&pid=ImgRaw&r=0" ></li>
+        <li><img id="html" src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2017/09/HTML-Effects-Featured.jpg" ></li>
+        <li><img id="css" src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/css-beginners-tutorial.jpg" ></li>
+        <li><img id="nodeJs" src="https://th.bing.com/th/id/OIP.M1U-BOiIzjE8ERoPA2GqpQHaE8?rs=1&pid=ImgDetMain" ></li>
+    </ul>
+
+    
+</body>
+<script>
+    // 2. this option is also not a good practice because it doesn't offer functionality
+    // document.getElementById('js').onclick = function(){
+    //     alert('clicked on js');
+    // }
+
+    //3.  best practice
+  /*  document.getElementById('js').addEventListener("click",(event)=>{
+        // the eventListener provides event object functionality which is used to further operations on specific target
+        alert("again clicked on js");
+        console.log(event);
+    },false);*/ 
+
+    // other options attachEvent(), jQuery .on etc old techniques
+
+    addEventListener("click", (e)=>{
+
+    }, false);  // -> false : event bubling , true : event capturing
+
+    /*
+    Event bubbling, event capturing, and event propagation are concepts that describe how events are handled in the HTML DOM when an event occurs on an element that is nested inside another element. Let me explain them briefly.
+
+-Event propagation is the process of dispatching an event from the target element to its ancestors in the DOM tree. There are two phases of event propagation: capturing and bubbling.
+-Event capturing is the first phase of event propagation, where the event is captured by the outermost element and then passed down to the target element.
+    This means that the event handler of the outermost element is executed first, then the event handler of its child element, and so on, until the target element is reached.
+-Event bubbling is the second phase of event propagation, where the event is bubbled up from the target element to its ancestors in the DOM tree. This means that the event
+ handler of the target element is executed first, then the event handler of its parent element, and so on, until the outermost element is reached.
+By default, most events use the bubbling phase, which means that the event handlers are executed from the innermost element to the outermost element. 
+However, you can also register event handlers for the capturing phase, which means that the event handlers are executed from the outermost element 
+to the innermost element. You can do this by passing a third argument of true to the addEventListener method, which indicates that the 
+event handler should use the capturing phase.
+    */
+
+// Example : 
+
+document.getElementById("images").addEventListener('click', (e)=>{
+        console.log("ul clicked");
+},false);
+
+document.getElementById("nodeJs").addEventListener('click', (e)=>{
+    console.log('li clicked');
+    // when it false : li (child node) run first then ul (parent node)
+    // when it true : li (child node) run last then ul (parent node)
+
+    e.stopPropagation(); //is used to disable parent node events to execute
+},false);
+
+
+
+
+</script>
+</html>
