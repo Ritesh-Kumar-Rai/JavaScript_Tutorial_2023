@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Background Changer</title>
+</head>
+<body>
+    <h1>UNLIMITED BACKGROUND CHANGER</h1>
+    <h3>START button may change the background color every 1 sec </h3>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+
+
+
+</body>
+<script>
+
+    console.log("Hare Krsna!");
+
+    generateColor = () =>{
+       
+        
+       let color = "#";
+        for(let i=0; i<6; i++){
+            const hex = "0123456789ABCDEF";
+            const randomIndex = Math.floor(Math.random() * (hex.length));
+            
+            color += hex[randomIndex];
+        }
+        console.log(color);
+        return color;
+    }
+
+    let timeId = null;
+
+    changeBackgroundColor = () =>{
+        console.log(timeId)
+        if(!timeId){
+
+            timeId =  setInterval(()=>{
+                
+                document.body.style.backgroundColor = generateColor();
+                
+            },1000); 
+            // setInterval(callback, milliSec, arguments) // SYNTAX : callbackFunction, TimeInMilli, Parameters:Arguments
+        }
+    }
+
+    stopBackgroundColor = () =>{
+        clearInterval(timeId);
+        console.log(timeId);
+        timeId = null;
+    }
+
+    document.getElementById('start').addEventListener('click', changeBackgroundColor);
+
+    document.getElementById('stop').addEventListener('click', stopBackgroundColor);
+
+</script>
+</html>

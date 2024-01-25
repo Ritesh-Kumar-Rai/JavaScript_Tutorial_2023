@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeOut async</title>
+</head>
+<body>
+    <h1>setTimeOut Async function</h1>
+    <h4>loading...</h4>
+    <button id="stop">STOP</button>
+
+
+
+    <script>
+        // Non-Blocking async function
+
+        setTimeout(()=>{
+            console.log("Hare Krsna!");
+        },2000);
+
+        const changeText = () =>{
+            document.querySelector("h4").innerText = "AFTER 3 SEC.. EXECUTED";
+        }
+
+        const id = setTimeout(changeText, 3000);
+
+        document.getElementById("stop").addEventListener('click', ()=>{
+                clearTimeout(id);
+                console.log("execution stopped!");
+        });
+    </script>
+</body>
+</html>
