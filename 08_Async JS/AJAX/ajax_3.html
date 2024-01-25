@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX-3 (using External API)</title>
+
+    <style>
+      .container {
+        margin-left: 20%;
+        margin-top: 70px;
+      }
+
+      button {
+        font-size: 20px;
+        margin-left: 20px;
+      }
+
+      #result {
+        margin-top: 40px;
+        border-radius: 5px;
+        background-color: black;
+        padding: 5px;
+        color: azure;
+        font-size: 20px;
+        min-height: 20vh;
+        width: 70%;
+      }
+      
+      #users{
+        margin-left: 5px;
+        display: flex;
+        margin-bottom: 10px;
+        padding: 5px;
+       
+      }
+      #users ul{
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>FETCH data from JSON file using AJAX (XMLHttpRequest() API)</h1>
+
+      <button id="getUsers">GET USERS FROM GITHUB</button>
+      
+
+      <h1>Results :</h1>
+      <div id="result"></div>
+    </div>
+
+    
+    <script src="app3.js"></script>
+  </body>
+</html>
