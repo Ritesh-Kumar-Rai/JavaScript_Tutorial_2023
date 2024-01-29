@@ -11,6 +11,9 @@
 </body>
 
     <script>
+
+  // 1. Lexical Scope      
+
     // function init() {
     //     let name = "Mozilla"; 
     //     function displayName() {
@@ -38,13 +41,14 @@
     // outer()
     // console.log("TOO OUTER", username);
 
+    // 2. Closures
 
     // function makeFunc() {
     //     const name = "Mozilla";
     //     function displayName() {
     //         console.log(name);
     //     }
-    //     return displayName;
+    //     return displayName;// function will not only returned but with it's outer function scope(lexical scope) is also returned that's why u are able to access name var
     // }
 
     // const myFunc = makeFunc();
