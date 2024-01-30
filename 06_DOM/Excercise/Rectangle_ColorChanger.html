@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Color Changer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+
+        h1{
+            position: absolute;
+            left: 20%;
+            margin-top: 20px;
+        }
+
+        #rectangle{
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Rectange Color Changer Red / Blue while horizonatal hover</h1>
+    <div id="rectangle"></div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<script>
+    let rect = document.getElementById("rectangle");
+
+    rect.addEventListener("mousemove", (e)=>{
+            let rectangle_location = rect.getBoundingClientRect();
+            // console.log(rectangle_location);
+            let inside_position_x =  e.clientX - rectangle_location.left;
+
+            let center = rectangle_location.width/2;
+            // console.log(center);
+            if(inside_position_x < center){
+                // left side 
+                //mapRange(inMin, inMax, outMin, outMax, valueToMap)
+                let red_color_range = gsap.utils.mapRange(250,0,0,255,inside_position_x);
+                // console.log(red_color_range);
+                gsap.to(rect, {
+                    backgroundColor : `rgb(${red_color_range},0,0)`,
+                    ease : Power4
+                });
+            }else{
+                // right side 
+                let red_color_range = gsap.utils.mapRange(center,rectangle_location.width,0,255,inside_position_x);
+                // console.log(red_color_range);
+                gsap.to(rect, {
+                    backgroundColor : `rgb(0,0,${red_color_range})`,
+                    ease : Power4
+                });
+            }
+    });
+
+    rect.addEventListener("mouseleave", ()=>{
+        gsap.to(rect, {
+            backgroundColor : "white",
+            ease : Power4
+        });
+    });
+</script>
+
+</html>
